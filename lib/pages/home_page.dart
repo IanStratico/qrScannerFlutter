@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_scanner/models/scan_model.dart';
 import 'package:qr_scanner/pages/pages.dart';
 import 'package:qr_scanner/providers/db_provider.dart';
 import 'package:qr_scanner/providers/ui_provider.dart';
@@ -31,7 +32,10 @@ class _HomeBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
 
     final currentindex = uiProvider.selectedMenuOpt;
-    DBProvider.db.database;
+    // final tempScan = new ScanModel(valor: 'https://google.com');
+    // DBProvider.db.nuevoScanRaw(tempScan);
+    // DBProvider.db.getScanBy(2).then((scan) => print(scan?.valor));
+    DBProvider.db.getTodosLosScans().then(print);
 
     switch (currentindex) {
       case 0:
