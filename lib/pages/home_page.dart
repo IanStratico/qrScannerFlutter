@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_scanner/models/scan_model.dart';
 import 'package:qr_scanner/pages/pages.dart';
 import 'package:qr_scanner/providers/db_provider.dart';
+import 'package:qr_scanner/providers/scan_list_provider.dart';
 import 'package:qr_scanner/providers/ui_provider.dart';
 import 'package:qr_scanner/widgets/widgets.dart';
 
@@ -35,13 +36,18 @@ class _HomeBody extends StatelessWidget {
     // final tempScan = new ScanModel(valor: 'https://google.com');
     // DBProvider.db.nuevoScanRaw(tempScan);
     // DBProvider.db.getScanBy(2).then((scan) => print(scan?.valor));
-    DBProvider.db.getTodosLosScans().then(print);
+    // DBProvider.db.getTodosLosScans().then(print);
+
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
 
     switch (currentindex) {
       case 0:
+        scanListProvider.cargarScanPorTipo('geo');
         return MapasScreen();
 
       case 1:
+        scanListProvider.cargarScanPorTipo('http');
         return DireccionesScreen();
 
       default:
