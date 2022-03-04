@@ -23,7 +23,7 @@ class MapasScreen extends StatelessWidget {
           Icons.keyboard_arrow_right,
           color: Colors.grey,
         ),
-        onTap: () => print('abrir algo'),
+        onTap: () => print(scanListProvider.scans[i].id),
       ),
     );
   }
