@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'dart:math';
+
 ScanModel scanModelFromJson(String str) => ScanModel.fromJson(json.decode(str));
 
 String scanModelToJson(ScanModel data) => json.encode(data.toJson());
